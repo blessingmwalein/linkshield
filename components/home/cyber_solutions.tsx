@@ -51,6 +51,7 @@ const CybersecuritySolutions: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center gap-6 pt-4">
           {/* Button 1 */}
           <SquareButton
+            link="/services/cyber-security"
             children={
               <span className="font-normal text-[16px] text-black">
                 Learn More
@@ -59,10 +60,10 @@ const CybersecuritySolutions: React.FC = () => {
           />
 
           {/* Button 2 with Icon */}
-          <div className="flex justify-center items-center gap-2">
+          {/* <div className="flex justify-center items-center gap-2">
             <span className="font-normal text-[16px] text-black">Button</span>
             <ArrowIcon />
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -77,18 +78,21 @@ const CybersecuritySolutions: React.FC = () => {
         <CyberCard2
           title="Built-In Security from Day One"
           description="Our software development process incorporates secure coding practices to protect against vulnerabilities. By integrating security from the outset, we ensure your applications are resilient to threats and comply with industry standards."
+          link="https://safety.google/security/built-in-protection/"
         />
 
         {/* Solution 2: Agile Development */}
         <CyberCard2
           title="Agile Development"
           description="Our agile approach allows for iterative development and continuous improvement. By involving you in each phase, we ensure that the software evolves with your needs, delivering high-quality results on time and within budget."
+          link="https://www.opentext.com/what-is/agile-development"
         />
 
         {/* Solution 3: Unified Approach to Security */}
         <CyberCard2
           title="Unified Approach to Security"
           description="LinkShield integrates advanced cybersecurity solutions with our software development services. This seamless integration enhances your application's security posture, providing comprehensive protection against cyber threats and ensuring a secure user experience."
+          link="https://www.securitymagazine.com/articles/101006-a-unified-approach-to-risk-management"
         />
       </div>
 

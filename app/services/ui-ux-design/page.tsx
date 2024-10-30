@@ -14,8 +14,32 @@ import ResearchCard from "./research";
 import ProcessTabs from "./process_tabs";
 import UsabilityTesting from "./usability";
 import CustomizedSolutions from "./customizes_solutions";
+import { GlobalFaq } from "@/components/global_faq";
 
 const Page: React.FC = () => {
+  const faqs = [
+    {
+      question: "How does LinkShield integrate UX design into Agile development processes?",
+      answer: "At LinkShield, we implement UX design into Agile workflows through continuous collaboration and iteration. UX designers work closely with developers in every sprint to ensure user feedback is incorporated, allowing us to make rapid adjustments and maintain alignment with user needs and project goals."
+    },
+    {
+      question: "What methodologies does LinkShield employ to ensure our designs are scalable and future-proof?",
+      answer: "We adopt a modular design approach, utilizing design systems and atomic design principles to create scalable and adaptable components. This methodology allows us to maintain design consistency and easily implement updates or new features."
+    },
+    {
+      question: "Can LinkShield conduct heuristic evaluations on existing digital products, and how do these evaluations impact design decisions?",
+      answer: "We use established heuristics to systematically evaluate usability issues within your product. Our experts analyze various elements such as error prevention, flexibility, and consistency. The insights gathered are prioritized and integrated into actionable design recommendations."
+    },
+    {
+      question: "How does LinkShield ensure that UI/UX designs align with complex user journeys and personas?",
+      answer: "Our team creates detailed user personas and journey maps to deeply understand user behavior, motivations, and pain points. We use these tools to inform the design process, ensuring that every element is tailored to support the user’s journey. Regular usability testing and feedback loops are also implemented to validate these personas and journeys."
+    },
+    {
+      question: "What role does data analytics play in LinkShield’s design optimization process?",
+      answer: "LinkShield leverages data analytics extensively to inform and optimize design decisions. We use quantitative data from user interactions, heatmaps, and conversion metrics to identify user behavior patterns and pain points. This data-driven approach enables us to validate design hypotheses, prioritize design changes, and continuously improve the user experience based on empirical evidence rather than assumptions."
+    }
+  ];
+  
   return (
     <>
       <div className="pb-6">
@@ -71,7 +95,7 @@ const Page: React.FC = () => {
           <ResearchCard />
         </div>
 
-        <div className="flex flex-col md:flex-row gap-20 self-stretch">
+        <div className="flex flex-col md:flex-row gap-20 self-stretch mt-5">
           {/* Title Section */}
           <div className="flex flex-col gap-4 grow">
             <span className="font-bold text-4xl leading-tight text-black">
@@ -87,10 +111,10 @@ const Page: React.FC = () => {
           <UsabilityTesting />
         </div>
 
-        <div className="max-w-[768px] flex flex-col items-center gap-4 mx-auto">
-          <span className="font-semibold text-lg text-center text-black">
+        <div className="max-w-[768px] flex flex-col items-center gap-4 mx-auto mt-6">
+          {/* <span className="font-semibold text-lg text-center text-black">
             Tagline
-          </span>
+          </span> */}
           <div className="flex flex-col items-center gap-6 w-full">
             <span className="font-bold text-4xl text-center text-black">
               Tailored UI/UX Solutions for Every Business Size
@@ -114,7 +138,7 @@ const Page: React.FC = () => {
         <StartJourney />
       </div>
       <div className="bg-[#EFEFEF] h-auto pt-10 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]  pb-10">
-        <FAQsComponent />
+        <GlobalFaq faqs={faqs} />
       </div>
 
       <div className="mt-6">

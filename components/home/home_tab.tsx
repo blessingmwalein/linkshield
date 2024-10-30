@@ -9,6 +9,7 @@ import cyyberImage from "../../app/images/cyber_hero.png";
 import devImage from "../../app/images/dev_hero.png";
 import networkImage from "../../app/images/networking_hero.png";
 import TextLogo from "../text_logo";
+import Link from "next/link";
 
 // Define your images for each tab
 const heroImages = [cyyberImage, devImage, networkImage];
@@ -62,13 +63,20 @@ const HomeTab = () => {
                   threat detection to comprehensive compliance management and security
                   audits. LinkShield offers bespoke cybersecurity solutions designed to
                   protect and secure your business against evolving cyber threats."
+                  to={"/services/cyber-security"}
                 />
               </TabPanel>
               <TabPanel>
-                <PanelCard description="Full stack software development services. We integrate top-tier cybersecurity expertise into our process to create robust, secure applications from any point of development. Our solutions scale gracefully and fortify your digital infrastructure, delivering both resilience and peace of mind." />
+                <PanelCard
+                  to={"/services/software"}
+                  description="Full stack software development services. We integrate top-tier cybersecurity expertise into our process to create robust, secure applications from any point of development. Our solutions scale gracefully and fortify your digital infrastructure, delivering both resilience and peace of mind."
+                />
               </TabPanel>
               <TabPanel>
-                <PanelCard description="We offer integrated networking solutions for enterprises, data centers, and the cloud. From seamless, scalable connections for your operations to optimized data center infrastructure and secure cloud networking, we ensure your business stays connected and secure in today's digital landscape." />
+                <PanelCard
+                  to={"/services/network"}
+                  description="We offer integrated networking solutions for enterprises, data centers, and the cloud. From seamless, scalable connections for your operations to optimized data center infrastructure and secure cloud networking, we ensure your business stays connected and secure in today's digital landscape."
+                />
               </TabPanel>
             </TabPanels>
           </TabGroup>
@@ -93,24 +101,25 @@ export default HomeTab;
 
 interface PanelCardProps {
   description: string;
+  to?: any;
 }
 
-const PanelCard = ({ description }: PanelCardProps) => {
+const PanelCard = ({ description, to }: PanelCardProps) => {
   return (
     <div className="max-w-md p-6 bg-[#304146] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-4">
       <p className="mb-3 text-base text-white">{description}</p>
       <div className="flex">
         <div>
-          <a
-            href="#"
+          <Link
+            href={"/contact"}
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-white rounded-lg hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-white-300 dark:bg-white-600 dark:hover:bg-white-700 dark:focus:ring-white-800"
           >
             Get a quote
-          </a>
+          </Link>
         </div>
         <div className="ml-6">
-          <a
-            href="#"
+          <Link
+            href={to}
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-white-300 dark:bg-white-600 dark:hover:bg-white-700 dark:focus:ring-white-800"
           >
             See More
@@ -129,7 +138,7 @@ const PanelCard = ({ description }: PanelCardProps) => {
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

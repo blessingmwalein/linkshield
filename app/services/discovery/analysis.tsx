@@ -1,6 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
-import discoveryhero from '../../images/discoveryhero2.png';
+import React from "react";
+import Image from "next/image";
+import discoveryhero from "../../images/discoveryhero2.png";
+import Link from "next/link";
 
 const ProjectAnalysis = () => {
   return (
@@ -10,13 +11,14 @@ const ProjectAnalysis = () => {
         {/* Tagline and Description */}
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
-            <span className="font-semibold text-lg text-black">Tagline</span>
+            {/* <span className="font-semibold text-lg text-black">Tagline</span> */}
             <div className="flex flex-col gap-6">
               <span className="font-bold text-4xl text-black">
                 Thorough Analysis for Successful Project Outcomes
               </span>
               <span className="font-normal text-lg text-black">
-                LinkShield's discovery phase includes in-depth analysis to ensure your project is set up for success from the start.
+                LinkShield's discovery phase includes in-depth analysis to
+                ensure your project is set up for success from the start.
               </span>
             </div>
           </div>
@@ -36,22 +38,28 @@ const ProjectAnalysis = () => {
 
         {/* Get Started Button */}
         <div className="flex items-center gap-6 pt-4">
-          <div className="flex justify-center items-center gap-2">
+          <Link
+            href={"/contact"}
+            className="flex justify-center items-center gap-2"
+          >
             <span className="font-normal text-lg text-black">Get Started</span>
             <div className="w-6 h-6">
               <svg className="w-full h-full text-black" viewBox="0 0 24 24">
-                <path d="M9.71087 16.9492L15.4179 11.2422L9.71087 5.53516L8.29688 6.94916L12.5899 11.2422L8.29688 15.5352L9.71087 16.9492Z" fill="currentColor" />
+                <path
+                  d="M9.71087 16.9492L15.4179 11.2422L9.71087 5.53516L8.29688 6.94916L12.5899 11.2422L8.29688 15.5352L9.71087 16.9492Z"
+                  fill="currentColor"
+                />
               </svg>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
       {/* Image Section - Takes half the width */}
       <div className="flex justify-center w-full md:w-1/2">
-        <Image 
+        <Image
           src={discoveryhero}
-          alt="Project Analysis" 
+          alt="Project Analysis"
           className="w-full object-cover" // Responsive width and maintain aspect ratio
           layout="responsive" // Makes the image responsive
         />

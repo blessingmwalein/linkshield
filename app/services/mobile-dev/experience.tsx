@@ -38,7 +38,7 @@ const Experience = () => {
           </div>
         ))}
       </div>
-      <div className="flex items-center gap-6 pt-4">
+      {/* <div className="flex items-center gap-6 pt-4">
         <div className="flex justify-center items-center gap-2 px-6 py-3 border border-black">
           <span className="font-normal text-base text-black">Button</span>
         </div>
@@ -59,7 +59,7 @@ const Experience = () => {
             </svg>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

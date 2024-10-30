@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const JourneySection: React.FC = () => {
@@ -10,11 +11,13 @@ const JourneySection: React.FC = () => {
         <span className="font-normal text-[18px] text-black">
           Contact LinkShield today to discover how our exceptional services and client-focused approach can benefit your business.
         </span>
-        <div className="flex justify-start md:justify-start pt-4">
+        <Link 
+        href={"/contact"}
+        className="flex justify-start md:justify-start pt-4">
           <div className="flex justify-center items-center gap-2 bg-black px-6 py-3 rounded text-white">
             <span className="font-normal text-[16px]">Get a quote</span>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );

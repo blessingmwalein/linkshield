@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import discoveryhero from "../../images/mobiledevhero2.png";
+import Link from "next/link";
 
 const MobileDevelopmentServices = () => {
   return (
@@ -10,7 +11,7 @@ const MobileDevelopmentServices = () => {
         {/* Tagline and Description */}
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
-            <span className="font-semibold text-lg text-black">Tagline</span>
+            {/* <span className="font-semibold text-lg text-black">Tagline</span> */}
             <div className="flex flex-col gap-6">
               <span className="font-bold text-4xl text-black">
                 Comprehensive Mobile Development Services
@@ -39,7 +40,9 @@ const MobileDevelopmentServices = () => {
 
         {/* Get Started Button */}
         <div className="flex items-center gap-6 pt-4">
-          <div className="flex justify-center items-center gap-2">
+          <Link 
+            href={"/contact"}
+          className="flex justify-center items-center gap-2">
             <span className="font-normal text-lg text-black">Get Started</span>
             <div className="w-6 h-6">
               <svg className="w-full h-full text-black" viewBox="0 0 24 24">
@@ -49,7 +52,7 @@ const MobileDevelopmentServices = () => {
                 />
               </svg>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 

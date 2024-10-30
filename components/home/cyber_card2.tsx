@@ -1,11 +1,13 @@
+import Link from "next/link";
 import ArrowIcon from "../arrow_icon";
 
 interface CyberCardProps {
   title: string;
   description: string;
+  link: string;
 }
 
-const CyberCard2 = ({ title, description }: CyberCardProps) => {
+const CyberCard2 = ({ title, description, link }: CyberCardProps) => {
   return (
     <div className="flex flex-col gap-4 md:gap-6 grow">
       <svg
@@ -38,14 +40,19 @@ const CyberCard2 = ({ title, description }: CyberCardProps) => {
       <span className="font-normal text-base md:text-lg text-black text-center md:text-left">
         {description}
       </span>
-      <div className="flex justify-center md:justify-start items-center gap-2 pt-2">
+      <Link
+        href={link || "#"}
+        target="_blank" // Open in a new tab
+        rel="noopener noreferrer" // Security recommendation for external links
+        className="flex justify-center md:justify-start items-center gap-2 pt-2"
+      >
         <span className="font-normal text-base md:text-lg text-black cursor-pointer">
           Learn More
         </span>
         <div className="w-6 h-6 mt-4 ml-3">
           <ArrowIcon />
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

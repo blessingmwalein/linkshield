@@ -4,6 +4,7 @@ import Image from "next/image"; // or from another library as needed
 // Import your local images
 import projectImage from "../../images/projectimage.png"; // Adjust the path according to your project structure
 import ArrowIcon from "@/components/arrow_icon";
+import Link from "next/link";
 
 const Project = () => {
   return (
@@ -22,14 +23,19 @@ const Project = () => {
             efficient, and aligned with your goals.
           </span>
         </div>
-        <div className="flex justify-center md:justify-start items-center gap-2 pt-2 mt-4">
+        <Link
+          href={"https://maddevs.io/project-discovery/"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-center md:justify-start items-center gap-2 pt-2 mt-4"
+        >
           <span className="font-normal text-base md:text-lg text-black cursor-pointer">
             Learn More
           </span>
           <div className="w-6 h-6 mt-4 ml-3">
             <ArrowIcon />
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Image Section */}

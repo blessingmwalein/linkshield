@@ -1,7 +1,8 @@
-import React, { Fragment, useState } from "react";
-import { Menu } from "@headlessui/react"; // Import Menu for proper structure
+import React, { useState } from "react";
+import { Menu, MenuButton, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import SubDropdown from "./sub_dropdown";
 
 export interface SubItem {
   title: string;
@@ -20,14 +21,24 @@ export interface NavLink {
 
 interface DropdownMenuProps {
   link: NavLink;
-  mobile?: boolean; // Optional prop to differentiate between mobile and desktop view
+  mobile?: boolean;
+  closeMenu?: () => void; // Add closeMenu prop
 }
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
   link,
   mobile = false,
+  closeMenu,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openSubItems, setOpenSubItems] = useState<Record<number, boolean>>({});
+
+  const toggleSubItems = (index: number) => {
+    setOpenSubItems((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
 
   return (
     <div className={`w-full ${mobile ? "md:hidden" : "md:w-auto"}`}>
@@ -45,85 +56,80 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           />
         </div>
       ) : (
-        // Desktop Menu Button with Menu component
         <Menu as="div" className="relative inline-block text-left">
-          <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 px-3 py-2 rounded-lg text-white hover:bg-[#17404b] cursor-pointer shadow-sm">
+          <MenuButton className="inline-flex w-full justify-center gap-x-1.5 px-3 py-2 rounded-lg text-white hover:bg-[#17404b] cursor-pointer shadow-sm">
             {link.linkName}
-            <ChevronDownIcon
-              aria-hidden="true"
-              className="-mr-1 h-6 w-6 text-white"
-            />
-          </Menu.Button>
+            <ChevronDownIcon aria-hidden="true" className="-mr-1 h-6 w-6 text-white" />
+          </MenuButton>
 
-          {/* Desktop Menu Items */}
-          <Menu.Items className="absolute right-0 z-10 mt-2 w-[263px] origin-top-right rounded-xl bg-[#233339] shadow-lg ring-1 ring-black ring-opacity-5 outline outline-1 outline-[#38545e]">
+          <MenuItems className="absolute right-0 z-10 mt-2 w-[263px] origin-top-right rounded-xl bg-[#233339] shadow-lg ring-1 ring-black ring-opacity-5 outline outline-1 outline-[#38545e]">
             <div className="flex flex-col bg-[#233339] px-2.5 py-3 rounded-xl outline outline-1 outline-[#38545e]">
               {link.items?.map((item, index) => (
-                <Fragment key={index}>
-                  <Link
-                    href={item.href}
-                    className="inline-flex justify-between items-center w-full px-3 py-2 rounded-lg text-white font-normal text-[16px] hover:bg-[#17404b] cursor-pointer shadow-sm"
-                  >
-                    {item.title}
-                    {item.subItems && (
-                      <ChevronRightIcon
-                        aria-hidden="true"
-                        className="-mr-1 mt-0.5 h-6 w-6 text-white"
-                      />
-                    )}
-                  </Link>
-
-                  {/* Optional Sub-items */}
-                  {item.subItems && (
-                    <div className="ml-4 mt-1 space-y-2">
-                      {item.subItems.map((subItem, subIndex) => (
-                        <Link
-                          key={subIndex}
-                          href={subItem.href}
-                          className="block text-white text-sm pl-4 pr-2 py-1 rounded-md hover:bg-[#17404b]"
-                        >
-                          {subItem.title}
-                        </Link>
-                      ))}
-                    </div>
+                <Menu key={`item-${index}`} as="div" className="relative group">
+                  {item.subItems ? (
+                    <MenuButton className="inline-flex justify-between items-center w-full px-3 py-2 rounded-lg text-white font-normal text-[16px] hover:bg-[#17404b] cursor-pointer shadow-sm">
+                      {item.title}
+                      {item.subItems && (
+                        <ChevronRightIcon aria-hidden="true" className="h-5 w-5 text-white" />
+                      )}
+                    </MenuButton>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="block font-normal text-white text-[16px] px-3 py-2  rounded-lg hover:bg-[#17404b] cursor-pointer"
+                      onClick={closeMenu} // Close menu on link click
+                    >
+                      {item.title}
+                    </Link>
                   )}
-                </Fragment>
+
+                  {item.subItems && <SubDropdown subItems={item.subItems} main={item} />}
+                </Menu>
               ))}
             </div>
-          </Menu.Items>
+          </MenuItems>
         </Menu>
       )}
 
-      {/* Mobile Menu Items */}
       {mobile && isOpen && (
         <div className="bg-[#233339] px-4 py-2 rounded-lg space-y-2">
           {link.items?.map((item, index) => (
-            <Fragment key={index}>
-              {/* Menu Item */}
-              <div className="flex justify-between items-center text-white text-base cursor-pointer hover:bg-[#17404b] rounded-md px-2 py-1">
-                <Link href={item.href} className="w-full">
+            <div key={`mobileItem-${index}`}>
+              <div
+                className="flex justify-between items-center text-white text-base cursor-pointer hover:bg-[#17404b] rounded-md px-2 py-1"
+                onClick={() => toggleSubItems(index)}
+              >
+                <Link href={item.href} onClick={closeMenu} className="w-full">
                   {item.title}
                 </Link>
                 {item.subItems && (
-                  <ChevronRightIcon className="h-5 w-5 text-white" />
+                  <ChevronRightIcon
+                    className={`h-5 w-5 text-white transition-transform ${
+                      openSubItems[index] ? "rotate-90" : "rotate-0"
+                    }`}
+                  />
                 )}
               </div>
 
-              {/* Sub-items for Mobile */}
               {item.subItems && (
-                <div className="ml-4 mt-2 space-y-2">
+                <div
+                  className={`ml-4 mt-2 space-y-2 overflow-hidden transition-all duration-300 ${
+                    openSubItems[index] ? "max-h-screen" : "max-h-0"
+                  }`}
+                >
                   {item.subItems.map((subItem, subIndex) => (
                     <Link
-                      key={subIndex}
+                      key={`mobileSubItem-${subIndex}`}
                       href={subItem.href}
                       className="block text-white text-sm pl-4 pr-2 py-1 rounded-md hover:bg-[#17404b]"
+                      onClick={closeMenu} // Close menu on sub-item click
                     >
                       {subItem.title}
                     </Link>
                   ))}
                 </div>
               )}
-            </Fragment>
+            </div>
           ))}
         </div>
       )}

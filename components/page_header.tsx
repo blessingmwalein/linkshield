@@ -3,6 +3,7 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface PageHeaderProps {
   title: string;
@@ -20,11 +21,14 @@ const PageHeader = ({ title, description, image }: PageHeaderProps) => {
           {description}
         </p>
         {/* Button Section */}
-        <div className="mt-6 w-40 flex justify-center items-center gap-2 px-6 py-3 rounded-xl border border-solid bg-white cursor-pointer">
+        <Link
+          href={"/contact"}
+          className="mt-6 w-40 flex justify-center items-center gap-2 px-6 py-3 rounded-xl border border-solid bg-white cursor-pointer"
+        >
           <span className="font-bold text-xl text-center text-black">
             Get quote
           </span>
-        </div>
+        </Link>
       </div>
 
       {/* Right Side: Hero Image */}
@@ -42,5 +46,3 @@ const PageHeader = ({ title, description, image }: PageHeaderProps) => {
 };
 
 export default PageHeader;
-
-

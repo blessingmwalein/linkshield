@@ -11,6 +11,7 @@ import SecuritySolutions from "./solutions";
 import TeamGrid from "./teams";
 import RecognitionsAndAwards from "./awards";
 import AverageCompaniesSection from "./work_with";
+import Link from "next/link";
 
 const Page: React.FC = () => {
   return (
@@ -68,11 +69,14 @@ const Page: React.FC = () => {
             </span>
           </div>
           <div className="flex gap-4 pt-4">
-            <div className="flex justify-center items-center gap-2 bg-black px-6 py-3 border border-white">
+            <Link
+              className="flex justify-center items-center gap-2 bg-black px-6 py-3 border border-white"
+              href={"contact"}
+            >
               <span className="font-normal text-[16px] text-white">
                 Get started
               </span>
-            </div>
+            </Link>
           </div>
         </div>
         <FooterNav />

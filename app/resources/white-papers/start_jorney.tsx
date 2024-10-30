@@ -28,11 +28,11 @@ const StartJourney: React.FC = () => {
 
           {/* Buttons section */}
           <div className="flex gap-4 pt-4">
-            <div className="flex justify-center items-center gap-2 bg-black px-6 py-3 border border-black">
+            {/* <div className="flex justify-center items-center gap-2 bg-black px-6 py-3 border border-black">
               <span className="font-normal text-base text-white">
                 Get Started
               </span>
-            </div>
+            </div> */}
             <Link
               href="/contact"
               className="flex justify-center items-center gap-2 px-6 py-3 border border-white"

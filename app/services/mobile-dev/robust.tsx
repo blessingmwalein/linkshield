@@ -1,3 +1,5 @@
+import { link } from "fs";
+import Link from "next/link";
 import React from "react";
 
 const RobustServices = () => {
@@ -6,16 +8,21 @@ const RobustServices = () => {
       title: "Mobile App Security",
       description:
         "LinkShield employs cutting-edge security practices, including encryption, secure data storage, and regular security audits, to safeguard your app against threats.",
+
+      link: "https://www.fortinet.com/resources/cyberglossary/mobile-app-security",
     },
     {
       title: "Mobile Data Protection",
       description:
         "We ensure that sensitive user data is protected, implementing best practices for data encryption, secure authentication, and privacy compliance.",
+
+      link: "https://www.android.com/safety/",
     },
     {
       title: "Regular Security Updates",
       description:
         "LinkShield provides ongoing security updates and maintenance to protect your app from emerging threats and vulnerabilities.",
+      link: "https://systemagic.co.uk/why-regular-software-updates-are-important/",
     },
   ];
 
@@ -59,8 +66,11 @@ const RobustServices = () => {
             </span>
           </div>
           <div className="flex flex-col items-center gap-2 pt-2">
-            <div className="flex justify-center items-center gap-2">
-              <span className="font-normal text-base text-black">Button</span>
+            <Link
+            href={section.link}
+            target="_blank"
+            className="flex justify-center items-center gap-2">
+              <span className="font-normal text-base text-black">Learn More</span>
               <div className="w-6 h-6">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +85,7 @@ const RobustServices = () => {
                   />
                 </svg>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       ))}

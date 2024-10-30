@@ -1,6 +1,7 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { useState } from "react";
 import ArrowIcon from "../arrow_icon";
+import Link from "next/link";
 
 const CyberSecurityCard = () => {
   return (
@@ -15,9 +16,12 @@ const CyberSecurityCard = () => {
           secure.
         </p>
         {/* Get a quote button */}
-        <div className="w-full md:w-1/3 flex justify-center items-center gap-2 bg-[#284C59] px-6 py-3 rounded-lg mt-6">
+        <Link
+          href="/contact"
+          className="w-full md:w-1/3 flex justify-center items-center gap-2 bg-[#284C59] px-6 py-3 rounded-lg mt-6"
+        >
           <span className="font-bold text-[15px] text-white">Get a quote</span>
-        </div>
+        </Link>
       </div>
 
       {/* Right Side: Panel Content with Grid Layout */}
