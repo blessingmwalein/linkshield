@@ -40,7 +40,7 @@ const TopNavbar: React.FC = () => {
         },
         {
           title: "Regulatory Compliance",
-          href: "/services/regulatory-compliance",
+          href: "#",
           subItems: [
             { title: "GDPR", href: "/services/regulatory-compliance/gdpr" },
             { title: "HIPAA", href: "/services/regulatory-compliance/hippa" },
@@ -49,7 +49,7 @@ const TopNavbar: React.FC = () => {
         },
         {
           title: "Security Testing & Audits",
-          href: "/services/security-testing-audits",
+          href: "#",
           subItems: [
             {
               title: "Penetration Testing",
@@ -67,7 +67,7 @@ const TopNavbar: React.FC = () => {
         },
         {
           title: "Network Security",
-          href: "/services/network-security",
+          href: "#",
           subItems: [
             {
               title: "Firewall Management",
@@ -81,7 +81,7 @@ const TopNavbar: React.FC = () => {
         },
         {
           title: "Endpoint Security",
-          href: "/services/endpoint-security",
+          href: "#",
           subItems: [
             {
               title: "Real-time Monitoring",

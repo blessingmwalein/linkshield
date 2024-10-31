@@ -1,19 +1,23 @@
+import Link from "next/link";
 import React from "react";
 
 const Partners = () => {
   const sections = [
     {
       title: "Maintaining Network Security",
+      link: "https://www.esecurityplanet.com/networks/how-to-secure-a-network/",
       description:
         "Network security is crucial to protect sensitive information. LinkShield implements advanced security protocols and real-time monitoring to safeguard your data from potential threats.",
     },
     {
       title: "Secure, Scalable, and Reliable Networks",
+      link: "https://www.greycortex.com/blog/secure-and-reliable-networks-your-frontline-against-cyber-threats",
       description:
         "At LinkShield, we build networks that not only meet today's demands but are also prepared for tomorrow's challenges. Let us be your partner in ensuring seamless and secure connectivity.",
     },
     {
       title: "Performance and Stellar Uptimes",
+      link: "https://www.ptc.com/en/case-studies/stellar",
       description:
         "Network performance issues, such as latency and slow data transfer, can hinder productivity. LinkShield’s WAN optimization and SD-WAN solutions enhance network performance, reducing latency and improving data flow for a seamless user experience.",
     },
@@ -59,8 +63,14 @@ const Partners = () => {
             </span>
           </div>
           <div className="flex flex-col items-center gap-2 pt-2">
-            <div className="flex justify-center items-center gap-2">
-              <span className="font-normal text-base text-black">Button</span>
+            <Link
+              href={section.link}
+              target="_blank"
+              className="flex justify-center items-center gap-2"
+            >
+              <span className="font-normal text-base text-black">
+                Learn more
+              </span>
               <div className="w-6 h-6">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +85,7 @@ const Partners = () => {
                   />
                 </svg>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       ))}

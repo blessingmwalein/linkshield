@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const FooterNav = () => {
@@ -8,12 +9,21 @@ const FooterNav = () => {
         <div className="flex flex-col gap-8 lg:gap-16 lg:flex-row lg:w-2/3">
           {/* About Us Section */}
           <div className="flex flex-col gap-4 lg:gap-6">
-            <h2 className="text-lg font-semibold">About Us</h2>
+            <h2 className="text-lg font-semibold">
+
+              <Link href={"/about"}>About Us</Link>
+            </h2>
             <ul className="space-y-2">
               <li className="text-sm hover:underline">Services</li>
-              <li className="text-sm hover:underline">Contact Us</li>
-              <li className="text-sm hover:underline">FAQs</li>
-              <li className="text-sm hover:underline">Blog</li>
+              <li className="text-sm hover:underline">
+                <Link href={"/contact"}>Contact Us</Link>
+              </li>
+              <li className="text-sm hover:underline">
+                <Link href={"/resources/faqs"}>FAQs</Link>
+              </li>
+              <li className="text-sm hover:underline">
+                <Link href={"/resources/blog"}>Blog</Link>
+              </li>
               <li className="text-sm hover:underline">Testimonials</li>
             </ul>
           </div>

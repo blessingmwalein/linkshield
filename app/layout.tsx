@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../app/globals.css"; // Adjusted path for global styles
 import TopNavbar from "@/components/top_nav";
+import Script from "next/script";
+import dynamic from "next/dynamic";
+import { useRef } from "react";
+import TawkChat from "./talk";
 
 // Load local fonts
 const geistSans = localFont({
@@ -27,6 +31,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+ 
   return (
     <html lang="en">
       <body
@@ -37,6 +42,8 @@ export default function RootLayout({
         </div>
 
         {children}
+
+        <TawkChat />
       </body>
     </html>
   );

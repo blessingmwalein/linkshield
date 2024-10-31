@@ -5,6 +5,7 @@ import inter1 from "../../images/inter1.png"; // Ensure these paths point to the
 import inter2 from "../../images/inter2.png";
 import inter3 from "../../images/inter3.png";
 import inter4 from "../../images/inter4.png";
+import Link from "next/link";
 
 const Intergrated = () => {
   return (
@@ -22,11 +23,22 @@ const Intergrated = () => {
           </span>
         </div>
         <div className="flex items-center gap-6 pt-4">
-          <div className="flex justify-center items-center gap-2 px-6 py-3 border border-black cursor-pointer">
-            <span className="font-normal text-base text-black">Button</span>
-          </div>
-          <div className="flex justify-center items-center gap-2">
-            <span className="font-normal text-base text-black">Button</span>
+          <Link
+            href={"/contact"}
+            className="flex justify-center items-center gap-2 px-6 py-3 border border-black cursor-pointer"
+          >
+            <span className="font-normal text-base text-black">
+              Get started
+            </span>
+          </Link>
+          <Link
+            href={
+              "https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjd1a2q87aJAxWksYMHHaKzKiQYABAAGgJlZg&co=1&ase=2&gclid=Cj0KCQjwsoe5BhDiARIsAOXVoUsevWDzYGCZRIiI5erifpwLq9YXC1ujhStekG7kSS1ESvuaUNbHS3caAh_7EALw_wcB&ohost=www.google.com&cid=CAESVeD21AIUGSmI232lk2oiRhJXHbF2gl1Isj4TVs7bIiyoTOvyGoRo-JXbuRcQwkE-QbDrqHHwvB3t7zr5N3vAtMvZfH_LD8xiaaY1SrjwMH40f9fq8sk&sig=AOD64_2pBuLSoMcJi326jq42M_F20M50tw&q&nis=4&adurl&ved=2ahUKEwiTi6mq87aJAxU21wIHHYyKEPcQ0Qx6BAgLEAE"
+            }
+            target="_blank"
+            className="flex justify-center items-center gap-2"
+          >
+            <span className="font-normal text-base text-black">Learn more</span>
             <div className="w-6 h-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +53,7 @@ const Intergrated = () => {
                 />
               </svg>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 

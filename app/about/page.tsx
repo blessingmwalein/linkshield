@@ -54,8 +54,8 @@ const Page: React.FC = () => {
           </div>
         </div>
 
-        <RecognitionsAndAwards />
-        <AverageCompaniesSection />
+        {/* <RecognitionsAndAwards /> */}
+        {/* <AverageCompaniesSection /> */}
       </div>
 
       <div className="mt-6">

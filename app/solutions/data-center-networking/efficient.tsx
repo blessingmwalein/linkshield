@@ -1,4 +1,5 @@
 import CircledNumber from "@/components/home/circled_number";
+import Link from "next/link";
 import React from "react";
 
 const Efficient = () => {
@@ -39,11 +40,14 @@ const Efficient = () => {
         ))}
       </div>
       <div className="flex items-center gap-6 pt-4">
-        <div className="flex justify-center items-center gap-2 px-6 py-3 border border-black">
-          <span className="font-normal text-base text-black">Button</span>
-        </div>
-        <div className="flex justify-center items-center gap-2">
-          <span className="font-normal text-base text-black">Button</span>
+        <Link
+          href={
+            "https://www.isolution.sa/2024/10/10/building-a-resilient-future-why-modernizing-your-data-center-is-a-must/"
+          }
+          target="_blank"
+          className="flex justify-center items-center gap-2"
+        >
+          <span className="font-normal text-base text-black">Learn more</span>
           <div className="w-6 h-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +62,7 @@ const Efficient = () => {
               />
             </svg>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );

@@ -49,10 +49,10 @@ const Page: React.FC = () => {
         <Critical />
         <div className="mt-10">
           <div className="flex flex-col gap-4 max-w-full mx-auto px-4 items-start">
-            <span className="font-semibold text-lg text-center text-black">
+            {/* <span className="font-semibold text-lg text-center text-black">
               Tagline
-            </span>
-            <div className="flex flex-col gap-6">
+            </span> */}
+            <div className="flex flex-col gap-6 w-1/2">
               <span className="font-bold text-3xl text-black">
                 Reliable, Efficient, Resilient: The Future of Data Center
                 Networking

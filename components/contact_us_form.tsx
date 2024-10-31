@@ -31,10 +31,10 @@ const ContactUsSectionForm: React.FC = () => {
   });
 
   return (
-    <div className="w-full py-8 lg:py-16 px-4 mx-auto max-w-screen-xl border border-gray-600 rounded-lg flex justify-center">
+    <div className="w-full py-8 lg:py-16 mx-auto max-w-screen-xl border border-gray-600 rounded-lg flex justify-center">
       <ToastContainer />
       {/* Center Container for the Form */}
-      <div className="lg:w-1/2 md:w-2/3 sm:w-full flex flex-col items-start lg:ml-16">
+      <div className="w-full flex flex-col items-start p-10">
         <h2 className="mb-8 text-4xl tracking-tight font-bold text-center text-white dark:text-white">
           Let’s bring your vision to life
         </h2>

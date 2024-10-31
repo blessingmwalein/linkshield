@@ -24,7 +24,7 @@ import BusinessOperationsSection from "./operations";
 import IntegrationSerevices from "./integration-services";
 
 const Page: React.FC = () => {
-  const faqList = [
+  const faqs = [
     {
       question:
         "What techniques does LinkShield use for machine learning model optimization?",
@@ -152,28 +152,6 @@ const Page: React.FC = () => {
         </div>
         <div className="mt-10 pb-10">
           <RobustServices />
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-12 mt-10 pb-10">
-          <div className="flex flex-col gap-6 grow">
-            <span className="font-bold text-[48px] text-black">
-              Transform Your Mobile Vision into Reality with LinkShield
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-6 grow">
-            <span className="font-normal text-[18px] text-black">
-              Whether you’re looking to develop a new mobile app or enhance an
-              existing one, LinkShield’s expertise in mobile development can
-              help you achieve your goals with precision and efficiency.
-            </span>
-
-            <Link href="/contact" className="flex justify-start gap-4 pt-4">
-              <button className="flex justify-center items-center gap-2 bg-black px-6 py-3 text-white border border-transparent">
-                <span className="font-normal text-[16px]">Get a quote</span>
-              </button>
-            </Link>
-          </div>
         </div>
       </div>
       <div className="">
