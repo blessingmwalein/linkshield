@@ -31,28 +31,28 @@ const ContactUsSectionForm: React.FC = () => {
   });
 
   return (
-    <div className="w-full py-8 lg:py-16 mx-auto max-w-screen-xl border border-gray-600 rounded-lg flex justify-center">
+    <div className="w-full py-8 lg:py-16 mx-auto flex justify-center">
       <ToastContainer />
-      {/* Center Container for the Form */}
-      <div className="w-full flex flex-col items-start p-10">
-        <h2 className="mb-8 text-4xl tracking-tight font-bold text-center text-white dark:text-white">
+      {/* Centered Container for the Form */}
+      <div className="w-full  flex flex-col items-center p-10  border border-gray-600 rounded-lg">
+        <h2 className="mb-8 text-4xl tracking-tight font-bold text-center text-white">
           Let’s bring your vision to life
         </h2>
 
         {/* Form Section */}
-        <form onSubmit={formik.handleSubmit} className="space-y-8 w-full">
+        <form onSubmit={formik.handleSubmit} className="space-y-8 w-full max-w-md">
           {/* Name Input */}
           <div className="w-full">
             <label
               htmlFor="name"
-              className="block mb-2 text-base font-normal text-white dark:text-gray-300"
+              className="block mb-2 text-base font-normal text-white"
             >
               Name
             </label>
             <input
               type="text"
               id="name"
-              className={`shadow-sm bg-[#5D7B87] text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 placeholder-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light ${
+              className={`shadow-sm bg-[#5D7B87] text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 placeholder-white ${
                 formik.touched.name && formik.errors.name
                   ? "border-red-500"
                   : ""
@@ -68,14 +68,14 @@ const ContactUsSectionForm: React.FC = () => {
           <div className="w-full">
             <label
               htmlFor="email"
-              className="block mb-2 text-base font-normal text-white dark:text-gray-300"
+              className="block mb-2 text-base font-normal text-white"
             >
               Email
             </label>
             <input
               type="email"
               id="email"
-              className={`shadow-sm bg-[#5D7B87] text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 placeholder-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light ${
+              className={`shadow-sm bg-[#5D7B87] text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 placeholder-white ${
                 formik.touched.email && formik.errors.email
                   ? "border-red-500"
                   : ""
@@ -88,17 +88,17 @@ const ContactUsSectionForm: React.FC = () => {
           </div>
 
           {/* Message Textarea */}
-          <div className="w-full sm:col-span-2">
+          <div className="w-full">
             <label
               htmlFor="message"
-              className="block mb-2 text-base font-normal text-white dark:text-gray-400"
+              className="block mb-2 text-base font-normal text-white"
             >
               How can we help you?
             </label>
             <textarea
               id="message"
               rows={6}
-              className={`block p-2.5 w-full text-sm bg-[#5D7B87] text-white shadow-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 placeholder-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 ${
+              className={`block p-2.5 w-full text-sm bg-[#5D7B87] text-white shadow-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 placeholder-white ${
                 formik.touched.message && formik.errors.message
                   ? "border-red-500"
                   : ""
@@ -112,13 +112,15 @@ const ContactUsSectionForm: React.FC = () => {
           </div>
 
           {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-50 py-3 px-4 text-sm font-medium text-center text-white rounded-xl border border-solid border-white"
-            disabled={!formik.isValid || formik.isSubmitting} // Disable button if form is not valid
-          >
-            Send Message
-          </button>
+          <div className="w-full flex justify-center">
+            <button
+              type="submit"
+              className="w-40 py-3 px-4 text-sm font-medium text-center text-white border border-white-600 bg-primary-500 rounded-xl hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-primary-500 curser:pointer"
+              disabled={!formik.isValid || formik.isSubmitting}
+            >
+              Send Message
+            </button>
+          </div>
         </form>
       </div>
     </div>

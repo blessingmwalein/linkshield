@@ -10,16 +10,21 @@ const CybersecuritySolutions: React.FC = () => {
     <div className="flex flex-col justify-center gap-20 w-full bg-[#efefef] px-4 md:px-[141px] py-28 mt-20">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row gap-6 w-full">
-        <div className="flex flex-col gap-4 grow">
+        {/* First Paragraph */}
+        <div className="flex flex-col gap-4 grow md:w-1/2">
           <span className="font-bold text-3xl md:text-4xl text-black">
-            Proactive and Customized Cybersecurity Solutions
+            Proactive and <br /> Customized <br /> Cybersecurity Solutions
           </span>
         </div>
-        <span className="font-normal text-base md:text-lg text-black">
-          Our proactive approach to cybersecurity ensures that your defenses are
-          always up-to-date and tailored to your specific needs. Discover our
-          custom solutions designed to protect your business effectively.
-        </span>
+
+        {/* Second Paragraph */}
+        <div className="md:w-1/2">
+          <span className="font-normal text-base md:text-lg text-black leading-7">
+            Our proactive approach to cybersecurity ensures that your defenses
+            are always up-to-date and tailored to your specific needs. Discover
+            our custom solutions designed to protect your business effectively.
+          </span>
+        </div>
       </div>
 
       {/* Solutions Section */}

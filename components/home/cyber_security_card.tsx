@@ -20,7 +20,7 @@ const CyberSecurityCard = () => {
           href="/contact"
           className="w-full md:w-1/3 flex justify-center items-center gap-2 bg-[#284C59] px-6 py-3 rounded-lg mt-6"
         >
-          <span className="font-bold text-[15px] text-white">Get a quote</span>
+          <span className="font-bold text-base text-white">Get a quote</span>
         </Link>
       </div>
 
@@ -143,7 +143,7 @@ const CyberSecurityCard = () => {
             <h3 className="font-semibold text-lg text-gray-800">
               {item.title}
             </h3>
-            <p className="text-sm text-gray-600 text-center">
+            <p className="text-base text-gray-600 text-center">
               {item.description}
             </p>
           </div>

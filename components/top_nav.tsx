@@ -3,13 +3,13 @@
 import React, { useState } from "react";
 import DropdownMenu, { NavLink } from "./dropdown_link";
 import Logo from "./logo";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid"; // Using Heroicons for menu icons
+import { Bars3Icon, ChevronLeftIcon, XMarkIcon } from "@heroicons/react/20/solid"; // Using Heroicons for menu icons
 import Link from "next/link";
 import MobileLogo from "./mobile_logo";
 
 const TopNavbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const [menuStack, setMenuStack] = useState<NavLink[]>([]); //
   // Sample data representing the links in the navigation menu
   const navLinks: NavLink[] = [
     {
@@ -26,11 +26,20 @@ const TopNavbar: React.FC = () => {
             { title: "PHP", href: "/services/web-dev/php" },
             { title: "Java Development", href: "/services/web-dev/java" },
             { title: ".Net Development", href: "/services/web-dev/dot-net" },
-            { title: "Frontend Development", href: "/services/web-dev/python" },
+            { title: "Python", href: "/services/web-dev/python" },
+            { title: "Nest.js Development", href: "/services/web-dev/nest-js" },
+            {
+              title: "Frontend Development",
+              href: "/services/web-dev/frontend",
+            },
             { title: "Vue.js", href: "/services/web-dev/vue-js" },
             { title: "React Development", href: "/services/web-dev/react-js" },
             { title: "Angular Development", href: "/services/web-dev/angular" },
             { title: "Next.js Development", href: "/services/web-dev/next-js" },
+            {
+              title: "Javascript Development",
+              href: "/services/web-dev/javascript",
+            },
           ],
         },
         { title: "Mobile Development", href: "/services/mobile-dev" },
@@ -75,7 +84,7 @@ const TopNavbar: React.FC = () => {
             },
             {
               title: "Intrusion Detection and Prevention",
-              href: "/services/network-security/dection",
+              href: "/services/network-security/detection",
             },
           ],
         },
@@ -128,13 +137,22 @@ const TopNavbar: React.FC = () => {
     },
   ];
 
+  const currentMenu = menuStack.length > 0 ? menuStack[menuStack.length - 1] : { linkName: "Menu", items: navLinks };
+
+  const navigateToSubMenu = (menu: NavLink) => {
+    if (menu.items) {
+      setMenuStack([...menuStack, menu]);
+    }
+  };
+
+  const navigateBack = () => {
+    setMenuStack(menuStack.slice(0, -1));
+  };
+
   return (
-    <div className="w-full bg-[#13252b]">
-      {/* Navbar Container */}
-      <div className="w-full flex justify-between items-center ">
-        {/* Logo Section */}
-        <Link href={"/"} className="flex items-center gap-2">
-          {/* Show MobileLogo on mobile, Logo on larger screens */}
+    <div className="w-full bg-[#13252b] sticky top-0 z-50">
+      <div className="w-full flex justify-between items-center p-4">
+        <Link href="/" className="flex items-center gap-2">
           <div className="block md:hidden">
             <MobileLogo />
           </div>
@@ -143,48 +161,17 @@ const TopNavbar: React.FC = () => {
           </div>
         </Link>
 
-        {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle Menu"
-          >
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle Menu">
             {isMobileMenuOpen ? (
-              <XMarkIcon className="h-6 w-6 text-white" />
+              <XMarkIcon className="h-7 w-7 text-white" />
             ) : (
-              // <Bars3Icon className="h-6 w-6 text-white" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="17"
-                height="22"
-                viewBox="0 0 17 22"
-                fill="none"
-              >
-                <path
-                  d="M2 2H14.75"
-                  stroke="white"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M2 11H14.75"
-                  stroke="white"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M2 20H14.75"
-                  stroke="white"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                />
-              </svg>
+              <Bars3Icon className="h-7 w-7 text-white" />
             )}
           </button>
         </div>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex justify-end items-center gap-4 lg:gap-8">
+        <div className="hidden md:flex justify-end items-center gap-6">
           {navLinks.map((link, index) =>
             link.items ? (
               <DropdownMenu key={index} link={link} mobile={isMobileMenuOpen} />
@@ -192,72 +179,80 @@ const TopNavbar: React.FC = () => {
               <Link
                 key={index}
                 href={link.href}
-                className="h-[35px] flex items-center gap-2 px-[10px] lg:px-[15px] py-1 rounded-lg text-white hover:bg-[#17404b] cursor-pointer text-[14px] md:text-[15px] lg:text-[16px]"
+                className="h-[35px] flex items-center px-4 py-1 rounded-lg text-white bg-transparent hover:bg-[#344147] transition-all duration-300"
               >
-                <span className="font-normal">{link.linkName}</span>
+                {link.linkName}
               </Link>
             )
           )}
-
           <Link
-            href={"/contact"}
-            className="flex justify-center items-center gap-2 bg-white px-[20px] lg:px-[25px] py-3 rounded-lg"
+            href="/contact"
+            className="flex justify-center items-center bg-white text-black font-bold px-6 py-2 rounded-lg transition-all duration-300 hover:bg-[#344147] hover:text-white"
           >
-            <span className="font-bold text-black text-[14px] lg:text-[16px]">
-              Contact Us
-            </span>
+            Contact Us
           </Link>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#13252b] fixed inset-0 z-40 overflow-y-auto">
-          <div className="w-full h-screen p-6">
-            {/* Close Menu and Mobile Logo */}
+        <div className="md:hidden px-4 top-5 pt-5 overflow-y-auto bg-[#243339]">
+          <div className="w-full h-screen">
             <div className="flex justify-between items-center mb-6">
-              <Link href={"/"} className="flex items-center gap-2">
-                <MobileLogo />
-              </Link>
+              <div className="flex items-center gap-4">
+                {menuStack.length > 0 ? (
+                  <button
+                    onClick={navigateBack}
+                    className="flex items-center text-[#FFC01A] text-xl font-semibold gap-2"
+                  >
+                    <ChevronLeftIcon className="h-6 w-6" />
+                    <span className="text-xl">Back</span>
+                  </button>
+                ) : (
+                  <h2 className="text-[#FFC01A] text-xl font-semibold">Menu</h2>
+                )}
+              </div>
 
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                aria-label="Close Menu"
-              >
-                <XMarkIcon className="h-6 w-6 text-white" />
-              </button>
+              <h2 className="text-white text-xl px-4 font-semibold ml-auto text-[#FFC01A]">
+                {menuStack.length > 0 ? currentMenu.linkName : ""}
+              </h2>
             </div>
 
-            {/* Mobile Links Container */}
             <div className="flex flex-col gap-4">
-              {navLinks.map((link, index) =>
-                link.items ? (
-                  <DropdownMenu
-                    key={index}
-                    link={link}
-                    mobile
-                    closeMenu={() => setIsMobileMenuOpen(false)} // Pass close function
-                  />
-                ) : (
+              {currentMenu.items?.map((item, index) => (
+                <div
+                  onClick={() => navigateToSubMenu(item)}
+                  key={index}
+                  className="flex items-center justify-between rounded-lg py-2 bg-[#344147] hover:bg-[#344147]"
+                >
                   <Link
-                    key={index}
-                    href={link.href}
-                    className="block text-white text-lg px-4 py-2 rounded-md hover:bg-[#17404b]"
-                    onClick={() => setIsMobileMenuOpen(false)} // Close menu on link click
+                    href={item.href || "#"}
+                    className="block text-white text-xl px-4 py-2  transition-all duration-300"
+                    onClick={() => {
+                      if (!item.items) setIsMobileMenuOpen(false);
+                    }}
                   >
-                    {link.linkName}
+                    {item.title || item.linkName}
                   </Link>
-                )
-              )}
+                  {item.items && (
+                    <button
+                      onClick={() => navigateToSubMenu(item)}
+                      className="text-white"
+                    >
+                      <ChevronLeftIcon className="h-6 w-6 rotate-180" />
+                    </button>
+                  )}
+                </div>
+              ))}
 
-              {/* Contact Us Button */}
-              <Link
-                href={"/contact"}
-                className="flex justify-center items-center bg-white px-[25px] py-3 rounded-lg mt-6"
-                onClick={() => setIsMobileMenuOpen(false)} // Close menu on button click
-              >
-                <span className="font-bold text-black">Contact Us</span>
-              </Link>
+              {menuStack.length === 0 && (
+                <Link
+                  href="/contact"
+                  className="w-full flex justify-center items-center bg-white text-black font-bold px-6 py-3 rounded-lg mt-6 hover:bg-[#344147] transition-all duration-300"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Contact Us
+                </Link>
+              )}
             </div>
           </div>
         </div>

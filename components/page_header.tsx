@@ -1,12 +1,11 @@
 "use client";
 
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 interface PageHeaderProps {
-  title: string;
+  title: ReactNode; // Allow title to accept JSX or string
   description: string;
   image: any;
 }
@@ -16,7 +15,8 @@ const PageHeader = ({ title, description, image }: PageHeaderProps) => {
     <div className="flex flex-col md:flex-row h-auto pt-10 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
       {/* Left Side: Tabs and Descriptions */}
       <div className="w-full flex flex-col justify-center mb-8 lg:mb-0 lg:mr-4">
-        <h2 className="text-5xl font-bold text-white">{title}</h2>
+        {/* Render title directly */}
+        <h2 className="text-6xl font-bold text-white">{title}</h2>
         <p className="mt-6 text-lg text-[#b9d6e0] w-full lg:w-3/4">
           {description}
         </p>

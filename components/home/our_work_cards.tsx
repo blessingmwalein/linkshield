@@ -37,7 +37,7 @@ const WorkCard = ({ title, description }: WorkCardProps) => {
     <div className="w-full max-w-sm bg-[#304146] rounded-2xl shadow">
       <div className="flex flex-col items-start pb-4 px-6">
         <h3 className="mb-2 text-4xl md:text-5xl font-bold text-white mt-4">{title}</h3>
-        <p className="text-sm text-white leading-6">{description}</p>
+        <p className="text-base text-white leading-6">{description}</p>
       </div>
     </div>
   );

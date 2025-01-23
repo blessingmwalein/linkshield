@@ -22,7 +22,6 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      {/* Navbar Section */}
 
       {/* Hero Section */}
       <HomeTab />
@@ -31,22 +30,24 @@ export default function Home() {
       <GreyDivider />
 
       {/* Team Slider Section */}
-      <div className="h-64 md:h-80 2xl:h-96 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
-        <TeamSlider />
+      <div className="mt-12 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
+        <div className="relative h-auto">
+          <TeamSlider />
+        </div>
       </div>
 
       {/* Our Work Section */}
-      <div className="h-64 md:h-80 2xl:h-96 mt-12 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px] mb-10 md:mb-20">
+      <div className="mt-16 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
         <OurWorkCards />
       </div>
 
       {/* Cybersecurity Solutions Section */}
-      <div className="mt-8 md:mt-12">
+      <div className="mt-16">
         <CybersecuritySolutions />
       </div>
 
       {/* Contact Section - Tell Us What You Need */}
-      <div className="flex flex-col lg:flex-row h-auto mt-12 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
+      <div className="flex flex-col lg:flex-row mt-16 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
         {/* Image on Left */}
         <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:mr-4">
           <Image
@@ -60,21 +61,18 @@ export default function Home() {
 
         {/* Text on Right */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center">
-          <h2 className="text-2xl font-bold text-[#baffd6]">
+          <h2 className="text-4xl font-bold text-[#baffd6]">
             Tell us what you need
           </h2>
           <p className="mt-6 text-lg text-[#b9d6e0] w-full lg:w-3/4">
             LinkShield offers a full spectrum of cybersecurity services designed
-            to protect your business from evolving threats. From penetration
-            testing to real-time monitoring, we ensure your digital assets are
-            secure.
+            to protect your business from evolving threats.
           </p>
-          {/* Contact Button */}
           <Link
             href="/contact"
             className="w-40 mt-6 flex justify-center items-center gap-2 px-6 py-3 rounded-xl border border-solid border-white cursor-pointer"
           >
-            <span className="font-normal text-base text-center text-white">
+            <span className="font-normal text-lg text-center text-white">
               Contact Us
             </span>
           </Link>
@@ -82,22 +80,21 @@ export default function Home() {
       </div>
 
       {/* Contact Section - We'll Take It From There */}
-      <div className="flex flex-col lg:flex-row h-auto mt-12 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
+      <div className="flex flex-col lg:flex-row mt-16 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
         {/* Text on Left */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center mb-8 lg:mb-0 lg:mr-4">
-          <h2 className="text-2xl font-bold text-[#baffd6]">
+          <h2 className="text-4xl font-bold text-[#baffd6]">
             We’ll take it from there
           </h2>
           <p className="mt-6 text-lg text-[#b9d6e0] w-full lg:w-3/4">
             Leave the rest to us. From planning to execution, we’ll handle
             everything to ensure you get the best solutions.
           </p>
-          {/* Contact Button */}
           <Link
             href="/contact"
             className="w-40 mt-6 flex justify-center items-center gap-2 px-6 py-3 rounded-xl border border-solid border-white cursor-pointer"
           >
-            <span className="font-normal text-base text-center text-white">
+            <span className="font-normal text-lg text-center text-white">
               Contact Us
             </span>
           </Link>
@@ -116,17 +113,17 @@ export default function Home() {
       </div>
 
       {/* Contact Us Form Section */}
-      <div className="h-auto mt-20 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
+      <div className="mt-20 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
         <ContactUsSectionForm />
       </div>
 
-      {/* Articles section */}
-      <div className="h-auto mt-20 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
-        <ArticlesSection /> {/* Corrected typo */}
+      {/* Articles Section */}
+      <div className="mt-20 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
+        <ArticlesSection />
       </div>
 
       {/* Footer Navigation */}
-      <div className="h-auto mt-20 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
+      <div className="mt-20 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
         <FooterNav />
       </div>
     </>

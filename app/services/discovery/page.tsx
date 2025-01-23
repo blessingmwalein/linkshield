@@ -58,7 +58,11 @@ const Page: React.FC = () => {
     <>
       <div className="pb-6">
         <PageHeader
-          title="Project  Discovery Phase"
+          title={
+            <>
+              Project <br /> Discovery Phase
+            </>
+          }
           description="Understanding your project’s needs is essential for its success. At LinkShield, we guide you through a comprehensive discovery phase to ensure your project is built on a solid foundation."
           image={discoveruhero}
         />

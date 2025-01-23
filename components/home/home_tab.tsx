@@ -25,10 +25,10 @@ const HomeTab = () => {
 
         <div className="mt-12">
           <TabGroup selectedIndex={selectedIndex} onChange={setSelectedIndex}>
-            <TabList className="flex flex-wrap justify-start border-b-2 border-transparent">
+            <TabList className="flex flex-wrap justify-start border-b-2 border-transparent gap-8">
               {/* Tab Items */}
               <Tab
-                className={`py-2 px-1 font-bold ${
+                className={`py-4 px-2 font-bold text-lg ${
                   selectedIndex === 0
                     ? "text-white border-b-4 border-white"
                     : "text-gray-500"
@@ -37,7 +37,7 @@ const HomeTab = () => {
                 Cybersecurity
               </Tab>
               <Tab
-                className={`py-2 px-1 font-bold ${
+                className={`py-4 px-2 font-bold text-lg ${
                   selectedIndex === 1
                     ? "text-white border-b-4 border-white"
                     : "text-gray-500"
@@ -46,7 +46,7 @@ const HomeTab = () => {
                 Developer
               </Tab>
               <Tab
-                className={`py-2 px-1 font-bold ${
+                className={`py-4 px-2 font-bold text-lg ${
                   selectedIndex === 2
                     ? "text-white border-b-4 border-white"
                     : "text-gray-500"
@@ -60,9 +60,9 @@ const HomeTab = () => {
               <TabPanel>
                 <PanelCard
                   description="Our Cyber package offers cybersecurity coverage ranging from proactive
-                  threat detection to comprehensive compliance management and security
-                  audits. LinkShield offers bespoke cybersecurity solutions designed to
-                  protect and secure your business against evolving cyber threats."
+        threat detection to comprehensive compliance management and security
+        audits. LinkShield offers bespoke cybersecurity solutions designed to
+        protect and secure your business against evolving cyber threats."
                   to={"/services/cyber-security"}
                 />
               </TabPanel>

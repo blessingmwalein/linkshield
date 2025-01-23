@@ -16,7 +16,7 @@ const CyberCard = ({ number, title, description }: CyberCardProps) => {
         <span className="font-bold text-[32px] text-center text-black">
           {title}
         </span>
-        <span className="font-normal text-[16px] text-center text-black">
+        <span className="font-normal text-base text-center text-black">
           {description}
         </span>
       </div>
@@ -25,5 +25,3 @@ const CyberCard = ({ number, title, description }: CyberCardProps) => {
 };
 
 export default CyberCard;
-
-

@@ -31,13 +31,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
- 
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#13252b] py-2.5 md:py-3.5`}
       >
-        <div className="px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px]">
+        <div className=" py-4 sm:px-8 md:px-16 lg:px-28 xl:px-[140px] sticky top-0 z-50 bg-[#13252b] shadow-lg">
           <TopNavbar />
         </div>
 
