@@ -5,8 +5,8 @@ const MobileLogo: React.FC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="100"
-      height="50"
+      width="90"
+      height="40"
       viewBox="0 0 78 28"
       fill="none"
     >
